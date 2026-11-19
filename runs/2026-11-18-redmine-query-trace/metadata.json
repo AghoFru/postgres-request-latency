@@ -1,0 +1,140 @@
+{
+  "phase": "trace",
+  "command": "python3 experiments/realapp_note.py trace --app redmine --run-name 2026-11-18-redmine-query-trace",
+  "args": {
+    "phase": "trace",
+    "run_name": "2026-11-18-redmine-query-trace",
+    "app": "redmine",
+    "method": "container",
+    "runs": 10,
+    "requests": 200,
+    "warmup": 20,
+    "samples": 1000,
+    "repetitions": 3,
+    "select1_iterations": 500,
+    "trace_requests": 100,
+    "trace_route_requests": 30,
+    "trace_rtts": [
+      0,
+      1
+    ],
+    "budget_s": 10800
+  },
+  "seed": 20261118,
+  "sweep_rtts_ms": [
+    0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    2
+  ],
+  "fidelity_rtts_ms": [
+    0,
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.75,
+    1,
+    2
+  ],
+  "code_version": "No version control. See the sha256 values of the scripts.",
+  "started_utc": "2026-11-18T13:06:15Z",
+  "environment": {
+    "kernel": "7.2.13-100.fc43.x86_64",
+    "kernel_config": [
+      "CONFIG_NO_HZ_COMMON=y",
+      "# CONFIG_HZ_PERIODIC is not set",
+      "# CONFIG_NO_HZ_IDLE is not set",
+      "CONFIG_NO_HZ_FULL=y",
+      "CONFIG_NO_HZ=y",
+      "CONFIG_HIGH_RES_TIMERS=y",
+      "# CONFIG_HZ_100 is not set",
+      "# CONFIG_HZ_250 is not set",
+      "# CONFIG_HZ_300 is not set",
+      "CONFIG_HZ_1000=y",
+      "CONFIG_HZ=1000",
+      "CONFIG_NET_SCH_NETEM=m"
+    ],
+    "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+    "cpu_threads": 32,
+    "cpufreq_governor": "powersave",
+    "cpuidle_states": [
+      {
+        "name": "POLL",
+        "exit_latency_us": 0
+      },
+      {
+        "name": "C1",
+        "exit_latency_us": 1
+      },
+      {
+        "name": "C2",
+        "exit_latency_us": 18
+      },
+      {
+        "name": "C3",
+        "exit_latency_us": 350
+      }
+    ],
+    "clocksource": "tsc",
+    "tcp_autocorking": "1",
+    "tcp_limit_output_bytes": "4194304",
+    "loadavg_at_start": "4.69 5.02 4.85 5/3974 3468568",
+    "docker_server": "29.8.2",
+    "docker_compose": "5.6.1",
+    "python": "3.14.8",
+    "aimeos_commit": "919720089ad5ff6e63eee9c0aaf4a42c2cc27340",
+    "aimeos_local_changes": [
+      "M README.md",
+      "?? Dockerfile.benchmark",
+      "?? __pycache__/",
+      "?? compose.benchmark.yaml",
+      "?? entrypoint.benchmark.sh",
+      "?? run.py",
+      "?? traffic.mjs"
+    ],
+    "sha256": {
+      "apps/aimeos/Dockerfile.benchmark": "23cccf188f4ff3ebdbf5684e34f768a9d3f11f37fc71b69eae7c82e2e8a8b086",
+      "apps/aimeos/compose.benchmark.yaml": "42ed89bff0b894a30b30fc492ccb179e0c87af9c611a699d5964f2f848c6c946",
+      "apps/aimeos/composer.lock": "609fb236abd6901087fb67670f0305ed8fb5c7855ff079100226f28c4e8ee77e",
+      "apps/aimeos/entrypoint.benchmark.sh": "7189be40a4cf4ffc2dcb162550725bcfe43cc7eb7ef03598ea2fd361c3838679",
+      "apps/aimeos/run.py": "bdddb2a30cf80e2b98de023be7a0357461a427b540c848fdd0685965592cb28d",
+      "apps/aimeos/traffic.mjs": "a6820610962043b52a9c9321353d09992c1f0e2f36418caa5aa8943c2a81b6ed",
+      "experiments/echo_server.mjs": "0ac6975b593b6f4f5cb03d67577aa36c3e484011b5e11902fce63f3b00b3c1ee",
+      "experiments/realapp_note.py": "9f4545bc1e78eea94e7bc5dbb4182039844b1f777f881704be058a0bb199e731",
+      "experiments/rtt_probe.mjs": "0f7f9eda4cc9a7bcdd0055d742d5bd417404a245aec41062519cba59ed5f1def",
+      "realapp/README.md": "5dec60aa50577bf61fb85a158fccb82f4326327e868a2530f31c2c04be0f5103",
+      "realapp/compose.yaml": "3b8306f8ca9fcae4337ae494c43133a52ccca594100ec4ee540cd79e8aeedb6c",
+      "realapp/db_latency_trace.rb": "c9487a4626b7b5746d021b2abd73105a8bbcaa6a72a365305f64b19683b415c5",
+      "realapp/db_round_trip_probe.rb": "c82449799ba8c9de7ff3835da27f129773c4d158a115967135f02125d4cb16c7",
+      "realapp/run.py": "3767d4da92cbf5f3dfc0e142f1427359ce7f674fad843e1f61c088b8e38221f9",
+      "realapp/seed.rb": "436fc6ef42974d3e44e71f622926bd14df84dbc00ca55f4cf9938c73e063a885",
+      "realapp/traffic.mjs": "0a7a0857c198fc303be23f07863e87a7c72a129c97be96634f6c8a29e54d637c"
+    }
+  },
+  "status": "complete",
+  "images": "[{\"ID\":\"sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c\",\"ContainerName\":\"note-redmine-db-echo-1\",\"Repository\":\"node\",\"Tag\":\"\",\"Platform\":\"linux/amd64\",\"Size\":323820140,\"Created\":\"2026-09-23T21:10:23.946592977Z\",\"LastTagTime\":\"2026-11-18T12:43:58.885730298Z\"},{\"ID\":\"sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c\",\"ContainerName\":\"note-redmine-probe-1\",\"Repository\":\"node\",\"Tag\":\"\",\"Platform\":\"linux/amd64\",\"Size\":323820140,\"Created\":\"2026-09-23T21:10:23.946592977Z\",\"LastTagTime\":\"2026-11-18T12:43:58.885730298Z\"},{\"ID\":\"sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce\",\"ContainerName\":\"note-redmine-database-shaper-1\",\"Repository\":\"alpine\",\"Tag\":\"\",\"Platform\":\"linux/amd64\",\"Size\":13717932,\"Created\":\"2026-06-22T19:20:21.712285437Z\",\"LastTagTime\":\"2026-08-08T23:19:15.787811723Z\"},{\"ID\":\"sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce\",\"ContainerName\":\"note-redmine-shaper-redmine-1\",\"Repository\":\"alpine\",\"Tag\":\"\",\"Platform\":\"linux/amd64\",\"Size\":13717932,\"Created\":\"2026-06-22T19:20:21.712285437Z\",\"LastTagTime\":\"2026-08-08T23:19:15.787811723Z\"},{\"ID\":\"sha256:36944a03c15c81eba6e9c60b0c253fbac7a5a21ff9f5a56c2424af2d1639485a\",\"ContainerName\":\"note-redmine-redmine-1\",\"Repository\":\"redmine\",\"Tag\":\"\",\"Platform\":\"linux/amd64\",\"Size\":997606973,\"Created\":\"2026-09-23T19:12:55.391827653Z\",\"LastTagTime\":\"2026-11-18T12:43:59.908632298Z\"},{\"ID\":\"sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873\",\"ContainerName\":\"note-redmine-database-1\",\"Repository\":\"postgres\",\"Tag\":\"\",\"Platform\":\"linux/amd64\",\"Size\":433118553,\"Created\":\"2026-09-17T21:29:50.207676277Z\",\"LastTagTime\":\"2026-11-18T12:43:57.825486562Z\"}]",
+  "packet_capture": {
+    "0": {
+      "packets": 6853,
+      "unassigned_packets": 1
+    },
+    "1": {
+      "packets": 6810,
+      "unassigned_packets": 15
+    }
+  },
+  "finished_utc": "2026-11-18T13:07:34Z",
+  "loadavg_at_end": "4.74 4.97 4.85 12/3987 3475499"
+}

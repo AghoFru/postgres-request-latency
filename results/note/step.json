@@ -1,0 +1,506 @@
+{
+  "load_limit_threads": 2.0,
+  "note": "Clean runs: other processes kept at most load_limit_threads of the pinned hardware threads busy. CPU per request is the median over runs of the app plus database container CPU time per request.",
+  "apps": {
+    "redmine": {
+      "run": "2026-11-18-redmine-rtt-sweep-pinned",
+      "runs": 220,
+      "clean_runs": 177,
+      "loaded_runs": 43,
+      "mix_step": {
+        "low_rtt_ms": 0.4,
+        "high_rtt_ms": 0.5,
+        "low_value": 57.6012,
+        "high_value": 70.7845,
+        "rise_above_trend": 8.7316
+      },
+      "groups": [
+        {
+          "kind": "route",
+          "name": "issue_list",
+          "title": "Issue list (4 offsets)",
+          "clean_p50_by_rtt": {
+            "0": 41.4265,
+            "0.05": 43.5849,
+            "0.1": 45.873,
+            "0.2": 50.1186,
+            "0.3": 54.5671,
+            "0.4": 60.2366,
+            "0.5": 75.6638,
+            "0.75": 87.0776,
+            "1": 98.1609,
+            "1.5": 119.5873,
+            "2": 141.4679
+          },
+          "step": {
+            "low_rtt_ms": 0.4,
+            "high_rtt_ms": 0.5,
+            "low_value": 60.2366,
+            "high_value": 75.6638,
+            "rise_above_trend": 10.9863
+          },
+          "round_trips": 41.0,
+          "slope_0_to_2_ms_per_ms": 51.7489,
+          "ratio_0_to_2": 1.2622,
+          "below_step_slope_ms_per_ms": 43.7291,
+          "below_step_ratio": 1.0666,
+          "above_step_slope_ms_per_ms": 43.7011,
+          "above_step_ratio": 1.0659
+        },
+        {
+          "kind": "route",
+          "name": "issue_detail",
+          "title": "Issue detail",
+          "clean_p50_by_rtt": {
+            "0": 10.1381,
+            "0.05": 11.2696,
+            "0.1": 12.4494,
+            "0.2": 14.685,
+            "0.3": 16.9104,
+            "0.4": 19.6358,
+            "0.5": 23.5916,
+            "0.75": 28.9984,
+            "1": 34.865,
+            "1.5": 45.4796,
+            "2": 56.0469
+          },
+          "step": {
+            "low_rtt_ms": 0.4,
+            "high_rtt_ms": 0.5,
+            "low_value": 19.6358,
+            "high_value": 23.5916,
+            "rise_above_trend": 1.7064
+          },
+          "round_trips": 20.0,
+          "slope_0_to_2_ms_per_ms": 23.3026,
+          "ratio_0_to_2": 1.1651,
+          "below_step_slope_ms_per_ms": 22.5812,
+          "below_step_ratio": 1.1291,
+          "above_step_slope_ms_per_ms": 21.6511,
+          "above_step_ratio": 1.0826
+        },
+        {
+          "kind": "route",
+          "name": "project_list",
+          "title": "Project list",
+          "clean_p50_by_rtt": {
+            "0": 5.9889,
+            "0.05": 6.3526,
+            "0.1": 6.9138,
+            "0.2": 7.7281,
+            "0.3": 8.5938,
+            "0.4": 9.7923,
+            "0.5": 11.8651,
+            "0.75": 14.0221,
+            "1": 16.1681,
+            "1.5": 20.5517,
+            "2": 25.0419
+          },
+          "step": {
+            "low_rtt_ms": 0.4,
+            "high_rtt_ms": 0.5,
+            "low_value": 9.7923,
+            "high_value": 11.8651,
+            "rise_above_trend": 1.2016
+          },
+          "round_trips": 8.0,
+          "slope_0_to_2_ms_per_ms": 9.6961,
+          "ratio_0_to_2": 1.212,
+          "below_step_slope_ms_per_ms": 8.7541,
+          "below_step_ratio": 1.0943,
+          "above_step_slope_ms_per_ms": 8.781,
+          "above_step_ratio": 1.0976
+        },
+        {
+          "kind": "all",
+          "name": "all",
+          "title": "Whole mix",
+          "clean_p50_by_rtt": {
+            "0": 38.8333,
+            "0.05": 41.0734,
+            "0.1": 43.2444,
+            "0.2": 47.5378,
+            "0.3": 52.0386,
+            "0.4": 57.6012,
+            "0.5": 70.7845,
+            "0.75": 83.9394,
+            "1": 94.9978,
+            "1.5": 115.8873,
+            "2": 137.4478
+          },
+          "step": {
+            "low_rtt_ms": 0.4,
+            "high_rtt_ms": 0.5,
+            "low_value": 57.6012,
+            "high_value": 70.7845,
+            "rise_above_trend": 8.7316
+          },
+          "round_trips": 41.0,
+          "slope_0_to_2_ms_per_ms": 51.0252,
+          "ratio_0_to_2": 1.2445,
+          "below_step_slope_ms_per_ms": 43.8392,
+          "below_step_ratio": 1.0692,
+          "above_step_slope_ms_per_ms": 43.8316,
+          "above_step_ratio": 1.0691
+        }
+      ],
+      "cpu_ms_per_request_all_runs": {
+        "0": 29.7302,
+        "0.05": 29.3861,
+        "0.1": 29.5606,
+        "0.2": 30.1185,
+        "0.3": 30.5021,
+        "0.4": 32.2253,
+        "0.5": 40.0824,
+        "0.75": 41.1415,
+        "1": 42.0508,
+        "1.5": 44.1015,
+        "2": 45.7877
+      },
+      "cpu_step_all_runs": {
+        "low_rtt_ms": 0.4,
+        "high_rtt_ms": 0.5,
+        "low_value": 32.2253,
+        "high_value": 40.0824,
+        "rise_above_trend": 7.4602
+      },
+      "cpu_step_clean_runs": {
+        "low_rtt_ms": 0.4,
+        "high_rtt_ms": 0.5,
+        "low_value": 31.5659,
+        "high_value": 38.4068,
+        "rise_above_trend": 6.4442
+      },
+      "cpu_accounting_all_runs": {
+        "runs": 220,
+        "mean_latency_slope_ms_per_ms": 40.9942,
+        "mean_round_trips_per_request": 31.46,
+        "cpu_slope_ms_per_ms": 12.0288,
+        "idle_cpu_slope": 2.5015,
+        "round_trips_plus_cpu_excluding_idle": 40.9874
+      },
+      "cpu_accounting_clean_runs": {
+        "runs": 177,
+        "mean_latency_slope_ms_per_ms": 39.041,
+        "mean_round_trips_per_request": 31.46,
+        "cpu_slope_ms_per_ms": 9.3113,
+        "idle_cpu_slope": 2.3823,
+        "round_trips_plus_cpu_excluding_idle": 38.389
+      }
+    },
+    "aimeos": {
+      "run": "2026-11-18-aimeos-rtt-sweep-pinned",
+      "runs": 220,
+      "clean_runs": 158,
+      "loaded_runs": 62,
+      "mix_step": {
+        "low_rtt_ms": 0.5,
+        "high_rtt_ms": 0.75,
+        "low_value": 61.6309,
+        "high_value": 82.2936,
+        "rise_above_trend": 8.3155
+      },
+      "groups": [
+        {
+          "kind": "path",
+          "name": "/shop/search?f_sort=price&l_page=0",
+          "title": "Listing, page 0 (price)",
+          "clean_p50_by_rtt": {
+            "0": 69.0951,
+            "0.05": 75.2895,
+            "0.1": 80.9769,
+            "0.2": 92.6046,
+            "0.3": 104.0738,
+            "0.4": 116.4989,
+            "0.5": 127.9267,
+            "0.75": 176.3888,
+            "1": 207.7251,
+            "1.5": 269.337,
+            "2": 329.0448
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 127.9267,
+            "high_value": 176.3888,
+            "rise_above_trend": 18.1322
+          },
+          "round_trips": 112.0,
+          "slope_0_to_2_ms_per_ms": 133.351,
+          "ratio_0_to_2": 1.1906,
+          "below_step_slope_ms_per_ms": 117.5622,
+          "below_step_ratio": 1.0497,
+          "above_step_slope_ms_per_ms": 122.1274,
+          "above_step_ratio": 1.0904
+        },
+        {
+          "kind": "path",
+          "name": "/shop/search?f_sort=name&l_page=0",
+          "title": "Listing, page 0 (name)",
+          "clean_p50_by_rtt": {
+            "0": 69.254,
+            "0.05": 74.9452,
+            "0.1": 81.0237,
+            "0.2": 92.3959,
+            "0.3": 104.4091,
+            "0.4": 116.6949,
+            "0.5": 128.4493,
+            "0.75": 177.1781,
+            "1": 207.7625,
+            "1.5": 269.021,
+            "2": 328.8489
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 128.4493,
+            "high_value": 177.1781,
+            "rise_above_trend": 18.516
+          },
+          "round_trips": 112.0,
+          "slope_0_to_2_ms_per_ms": 133.2352,
+          "ratio_0_to_2": 1.1896,
+          "below_step_slope_ms_per_ms": 118.341,
+          "below_step_ratio": 1.0566,
+          "above_step_slope_ms_per_ms": 121.4228,
+          "above_step_ratio": 1.0841
+        },
+        {
+          "kind": "path",
+          "name": "/shop/search?f_sort=price&l_page=1",
+          "title": "Listing, page 1 (price)",
+          "clean_p50_by_rtt": {
+            "0": 69.8921,
+            "0.05": 75.9198,
+            "0.1": 81.7371,
+            "0.2": 93.4986,
+            "0.3": 104.8986,
+            "0.4": 117.05,
+            "0.5": 128.9779,
+            "0.75": 177.2454,
+            "1": 207.4733,
+            "1.5": 269.8555,
+            "2": 329.3823
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 128.9779,
+            "high_value": 177.2454,
+            "rise_above_trend": 18.2884
+          },
+          "round_trips": 112.0,
+          "slope_0_to_2_ms_per_ms": 133.0662,
+          "ratio_0_to_2": 1.1881,
+          "below_step_slope_ms_per_ms": 117.3446,
+          "below_step_ratio": 1.0477,
+          "above_step_slope_ms_per_ms": 122.0473,
+          "above_step_ratio": 1.0897
+        },
+        {
+          "kind": "path",
+          "name": "/shop/search?f_sort=name&l_page=1",
+          "title": "Listing, page 1 (name)",
+          "clean_p50_by_rtt": {
+            "0": 70.8501,
+            "0.05": 76.146,
+            "0.1": 82.1418,
+            "0.2": 94.2437,
+            "0.3": 106.2176,
+            "0.4": 117.89,
+            "0.5": 129.9832,
+            "0.75": 178.8362,
+            "1": 209.0361,
+            "1.5": 270.3697,
+            "2": 330.0192
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 129.9832,
+            "high_value": 178.8362,
+            "rise_above_trend": 18.7634
+          },
+          "round_trips": 112.0,
+          "slope_0_to_2_ms_per_ms": 133.1086,
+          "ratio_0_to_2": 1.1885,
+          "below_step_slope_ms_per_ms": 118.5759,
+          "below_step_ratio": 1.0587,
+          "above_step_slope_ms_per_ms": 121.1264,
+          "above_step_ratio": 1.0815
+        },
+        {
+          "kind": "path",
+          "name": "/shop/search?f_sort=price&l_page=2",
+          "title": "Listing, page 2 (price)",
+          "clean_p50_by_rtt": {
+            "0": 34.7763,
+            "0.05": 36.2421,
+            "0.1": 38.3018,
+            "0.2": 42.533,
+            "0.3": 46.7058,
+            "0.4": 51.1451,
+            "0.5": 55.6086,
+            "0.75": 73.9022,
+            "1": 85.4146,
+            "1.5": 107.1756,
+            "2": 129.8534
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 55.6086,
+            "high_value": 73.9022,
+            "rise_above_trend": 7.3043
+          },
+          "round_trips": 39.0,
+          "slope_0_to_2_ms_per_ms": 49.018,
+          "ratio_0_to_2": 1.2569,
+          "below_step_slope_ms_per_ms": 41.4354,
+          "below_step_ratio": 1.0624,
+          "above_step_slope_ms_per_ms": 44.5913,
+          "above_step_ratio": 1.1434
+        },
+        {
+          "kind": "path",
+          "name": "/shop/search?f_sort=name&l_page=2",
+          "title": "Listing, page 2 (name)",
+          "clean_p50_by_rtt": {
+            "0": 35.3428,
+            "0.05": 36.4815,
+            "0.1": 38.6048,
+            "0.2": 42.9624,
+            "0.3": 46.9542,
+            "0.4": 51.5756,
+            "0.5": 55.9571,
+            "0.75": 74.7414,
+            "1": 86.0748,
+            "1.5": 107.5884,
+            "2": 130.1807
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 55.9571,
+            "high_value": 74.7414,
+            "rise_above_trend": 7.8605
+          },
+          "round_trips": 39.0,
+          "slope_0_to_2_ms_per_ms": 49.0521,
+          "ratio_0_to_2": 1.2577,
+          "below_step_slope_ms_per_ms": 41.3246,
+          "below_step_ratio": 1.0596,
+          "above_step_slope_ms_per_ms": 44.1834,
+          "above_step_ratio": 1.1329
+        },
+        {
+          "kind": "route",
+          "name": "product_detail",
+          "title": "Product detail",
+          "clean_p50_by_rtt": {
+            "0": 35.8658,
+            "0.05": 37.946,
+            "0.1": 40.3331,
+            "0.2": 45.1172,
+            "0.3": 49.5767,
+            "0.4": 54.5977,
+            "0.5": 59.3892,
+            "0.75": 80.5635,
+            "1": 93.3849,
+            "1.5": 118.272,
+            "2": 143.6151
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 59.3892,
+            "high_value": 80.5635,
+            "rise_above_trend": 8.9631
+          },
+          "round_trips": 43.0,
+          "slope_0_to_2_ms_per_ms": 55.4664,
+          "ratio_0_to_2": 1.2899,
+          "below_step_slope_ms_per_ms": 46.8612,
+          "below_step_ratio": 1.0898,
+          "above_step_slope_ms_per_ms": 50.3449,
+          "above_step_ratio": 1.1708
+        },
+        {
+          "kind": "all",
+          "name": "all",
+          "title": "Whole mix",
+          "clean_p50_by_rtt": {
+            "0": 37.8289,
+            "0.05": 39.6337,
+            "0.1": 41.8913,
+            "0.2": 46.7102,
+            "0.3": 51.4477,
+            "0.4": 56.1427,
+            "0.5": 61.6309,
+            "0.75": 82.2936,
+            "1": 96.0096,
+            "1.5": 121.3038,
+            "2": 147.0444
+          },
+          "step": {
+            "low_rtt_ms": 0.5,
+            "high_rtt_ms": 0.75,
+            "low_value": 61.6309,
+            "high_value": 82.2936,
+            "rise_above_trend": 8.3155
+          },
+          "round_trips": 43.0,
+          "slope_0_to_2_ms_per_ms": 56.3793,
+          "ratio_0_to_2": 1.3111,
+          "below_step_slope_ms_per_ms": 46.4396,
+          "below_step_ratio": 1.08,
+          "above_step_slope_ms_per_ms": 51.5735,
+          "above_step_ratio": 1.1994
+        }
+      ],
+      "cpu_ms_per_request_all_runs": {
+        "0": 58.9938,
+        "0.05": 56.3634,
+        "0.1": 56.5553,
+        "0.2": 59.6405,
+        "0.3": 57.2878,
+        "0.4": 58.9093,
+        "0.5": 59.9511,
+        "0.75": 74.1149,
+        "1": 78.7048,
+        "1.5": 84.1913,
+        "2": 90.5511
+      },
+      "cpu_step_all_runs": {
+        "low_rtt_ms": 0.5,
+        "high_rtt_ms": 0.75,
+        "low_value": 59.9511,
+        "high_value": 74.1149,
+        "rise_above_trend": 11.2022
+      },
+      "cpu_step_clean_runs": {
+        "low_rtt_ms": 0.5,
+        "high_rtt_ms": 0.75,
+        "low_value": 59.6018,
+        "high_value": 72.6012,
+        "rise_above_trend": 10.1884
+      },
+      "cpu_accounting_all_runs": {
+        "runs": 220,
+        "mean_latency_slope_ms_per_ms": 79.0074,
+        "mean_round_trips_per_request": 69.8,
+        "cpu_slope_ms_per_ms": 16.8194,
+        "idle_cpu_slope": 3.6114,
+        "round_trips_plus_cpu_excluding_idle": 83.0079
+      },
+      "cpu_accounting_clean_runs": {
+        "runs": 158,
+        "mean_latency_slope_ms_per_ms": 85.2763,
+        "mean_round_trips_per_request": 69.8,
+        "cpu_slope_ms_per_ms": 18.7141,
+        "idle_cpu_slope": 3.898,
+        "round_trips_plus_cpu_excluding_idle": 84.6161
+      }
+    }
+  }
+}

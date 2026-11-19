@@ -1,0 +1,61 @@
+services:
+  database:
+    image: postgres:18-alpine@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
+    environment:
+      POSTGRES_DB: aimeos
+      POSTGRES_USER: aimeos
+      POSTGRES_PASSWORD: benchmark
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aimeos -d aimeos"]
+      interval: 1s
+      timeout: 2s
+      retries: 60
+
+  database-shaper:
+    image: alpine:3.22@sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce
+    network_mode: service:database
+    cap_add: [NET_ADMIN]
+    depends_on: [database]
+    command: ["sh", "-c", "apk add --no-cache iproute2 >/dev/null && sleep infinity"]
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.benchmark
+    cap_add: [NET_ADMIN]
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: http://127.0.0.1:8000
+      DB_CONNECTION: pgsql
+      DB_HOST: database
+      DB_PORT: "5432"
+      DB_DATABASE: aimeos
+      DB_USERNAME: aimeos
+      DB_PASSWORD: benchmark
+      SESSION_DRIVER: file
+      CACHE_DRIVER: file
+      QUEUE_CONNECTION: sync
+      LOG_CHANNEL: stderr
+      PHP_CLI_SERVER_WORKERS: "8"
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - php
+        - -r
+        - '$$s = @fsockopen("127.0.0.1", 8000); exit($$s ? 0 : 1);'
+      interval: 2s
+      timeout: 4s
+      retries: 60
+
+  probe:
+    image: node:22-bookworm-slim
+    network_mode: service:app
+    depends_on:
+      app:
+        condition: service_healthy
+    command: ["sleep", "infinity"]
+    volumes: ["./traffic.mjs:/work/traffic.mjs:ro"]

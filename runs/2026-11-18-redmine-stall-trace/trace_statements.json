@@ -1,0 +1,211 @@
+{
+  "issue_list": {
+    "requests": 30,
+    "statement_calls": 1230,
+    "statements_per_request": 41.0,
+    "statements": [
+      {
+        "calls": 360,
+        "query": "SELECT \"enabled_modules\".\"name\" FROM \"enabled_modules\" WHERE \"enabled_modules\".\"project_id\" = $1"
+      },
+      {
+        "calls": 360,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE \"custom_fields\".\"type\" = $1 AND (is_for_all = $2 OR id IN (SELECT DISTINCT cfp.custom_field_id FROM custom_fields_projects cfp WHERE cfp.project_id = $3)) ORDER BY \"custom_fields\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"issues\".\"id\" AS t0_r0, \"issues\".\"tracker_id\" AS t0_r1, \"issues\".\"project_id\" AS t0_r2, \"issues\".\"subject\" AS t0_r3, \"issues\".\"description\" AS t0_r4, \"issues\".\"due_date\" AS t0_r5, \"issues\".\"category_id\" AS t0_r6, \"issues\".\"status_id\" AS t0_r7, \"issues\".\"assigned_to_id\" AS t0_r8, \"issues\".\"pri"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT SUM(\"time_entries\".\"hours\") AS \"sum_hours\", \"parent\".\"id\" AS \"parent_id\" FROM \"time_entries\" INNER JOIN \"projects\" ON \"projects\".\"id\" = \"time_entries\".\"project_id\" INNER JOIN \"issues\" ON \"issues\".\"id\" = \"time_entries\".\"issue_id\" JOIN issues parent ON parent.root_id = issues.root_id AND parent"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT MAX(\"settings\".\"updated_on\") FROM \"settings\""
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE \"custom_fields\".\"is_filter\" = $1"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE \"custom_fields\".\"type\" = $1 AND \"custom_fields\".\"is_filter\" = $2 ORDER BY \"custom_fields\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"type\" IN ($1 /*, ... */) AND \"users\".\"id\" = $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT DISTINCT \"trackers\".* FROM \"trackers\" INNER JOIN \"projects_trackers\" ON \"projects_trackers\".\"tracker_id\" = \"trackers\".\"id\" INNER JOIN \"projects\" ON \"projects\".\"id\" = \"projects_trackers\".\"project_id\" WHERE (projects.status IN ($1 /*, ... */) AND EXISTS (SELECT $2 AS one FROM enabled_modules em"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"enumerations\".\"name\", \"enumerations\".\"id\" FROM \"enumerations\" WHERE \"enumerations\".\"type\" = $1 ORDER BY \"enumerations\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"enumerations\".* FROM \"enumerations\" WHERE \"enumerations\".\"type\" = $1 AND \"enumerations\".\"id\" = $2 ORDER BY \"enumerations\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"tokens\".* FROM \"tokens\" WHERE \"tokens\".\"action\" = $1 AND \"tokens\".\"value\" = $2 LIMIT $3"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE \"custom_fields\".\"type\" = $1 ORDER BY \"custom_fields\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"trackers\".* FROM \"trackers\" WHERE \"trackers\".\"id\" = $1 LIMIT $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"user_preferences\".* FROM \"user_preferences\" WHERE \"user_preferences\".\"user_id\" = $1 LIMIT $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT SUM(\"time_entries\".\"hours\") AS \"sum_hours\", \"time_entries\".\"issue_id\" AS \"time_entries_issue_id\" FROM \"time_entries\" INNER JOIN \"projects\" ON \"projects\".\"id\" = \"time_entries\".\"project_id\" WHERE (projects.status IN ($1 /*, ... */) AND EXISTS (SELECT $2 AS one FROM enabled_modules em WHERE em.p"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT COUNT(*) FROM \"issues\" INNER JOIN \"projects\" ON \"projects\".\"id\" = \"issues\".\"project_id\" INNER JOIN \"issue_statuses\" ON \"issue_statuses\".\"id\" = \"issues\".\"status_id\" WHERE (projects.status IN ($1 /*, ... */) AND EXISTS (SELECT $2 AS one FROM enabled_modules em WHERE em.project_id = projects.id "
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"type\" IN ($1, $2) AND \"users\".\"id\" = $3 LIMIT $4"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" INNER JOIN \"custom_fields_trackers\" ON \"custom_fields\".\"id\" = \"custom_fields_trackers\".\"custom_field_id\" WHERE \"custom_fields\".\"type\" = $1 AND \"custom_fields_trackers\".\"tracker_id\" = $2"
+      }
+    ]
+  },
+  "issue_detail": {
+    "requests": 30,
+    "statement_calls": 600,
+    "statements_per_request": 20.0,
+    "statements": [
+      {
+        "calls": 30,
+        "query": "BEGIN"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"issues\".* FROM \"issues\" WHERE \"issues\".\"id\" = $1 LIMIT $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" INNER JOIN \"custom_fields_trackers\" ON \"custom_fields\".\"id\" = \"custom_fields_trackers\".\"custom_field_id\" WHERE \"custom_fields\".\"type\" = $1 AND \"custom_fields_trackers\".\"tracker_id\" = $2"
+      },
+      {
+        "calls": 30,
+        "query": "UPDATE \"user_preferences\" SET \"others\" = $1 WHERE \"user_preferences\".\"id\" = $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"issue_statuses\".* FROM \"issue_statuses\" WHERE \"issue_statuses\".\"id\" = $1 LIMIT $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"email_addresses\".* FROM \"email_addresses\" WHERE \"email_addresses\".\"is_default\" = $1 AND \"email_addresses\".\"user_id\" = $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"reactions\".\"id\", \"reactions\".\"reactable_id\", \"reactions\".\"user_id\" FROM \"reactions\" WHERE \"reactions\".\"user_id\" IN (SELECT \"users\".\"id\" FROM \"users\" WHERE \"users\".\"type\" IN ($1 /*, ... */)) AND \"reactions\".\"reactable_type\" = $2 AND \"reactions\".\"reactable_id\" = $3 ORDER BY \"reactions\".\"id\" DE"
+      },
+      {
+        "calls": 30,
+        "query": "COMMIT"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"journals\".* FROM \"journals\" WHERE \"journals\".\"journalized_id\" = $1 AND \"journals\".\"journalized_type\" = $2 ORDER BY \"journals\".\"created_on\" ASC, \"journals\".\"id\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT MAX(\"settings\".\"updated_on\") FROM \"settings\""
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"enabled_modules\".\"name\" FROM \"enabled_modules\" WHERE \"enabled_modules\".\"project_id\" = $1"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE \"custom_fields\".\"type\" = $1 AND (is_for_all = $2 OR id IN (SELECT DISTINCT cfp.custom_field_id FROM custom_fields_projects cfp WHERE cfp.project_id = $3)) ORDER BY \"custom_fields\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"type\" IN ($1 /*, ... */) AND \"users\".\"id\" = $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"projects\".* FROM \"projects\" WHERE \"projects\".\"id\" = $1 LIMIT $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"journal_details\".* FROM \"journal_details\" WHERE \"journal_details\".\"journal_id\" = $1"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"tokens\".* FROM \"tokens\" WHERE \"tokens\".\"action\" = $1 AND \"tokens\".\"value\" = $2 LIMIT $3"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"trackers\".* FROM \"trackers\" WHERE \"trackers\".\"id\" = $1 LIMIT $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"user_preferences\".* FROM \"user_preferences\" WHERE \"user_preferences\".\"user_id\" = $1 LIMIT $2"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"type\" IN ($1, $2) AND \"users\".\"id\" = $3 LIMIT $4"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"enumerations\".* FROM \"enumerations\" WHERE \"enumerations\".\"type\" = $1 AND \"enumerations\".\"id\" = $2 ORDER BY \"enumerations\".\"position\" ASC LIMIT $3"
+      }
+    ]
+  },
+  "project_list": {
+    "requests": 30,
+    "statement_calls": 240,
+    "statements_per_request": 8.0,
+    "statements": [
+      {
+        "calls": 30,
+        "query": "SELECT \"projects\".* FROM \"projects\" WHERE (projects.status IN ($1 /*, ... */)) AND ((projects.status IN ($2))) ORDER BY projects.lft ASC LIMIT $3 OFFSET $4"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE (type = $1) ORDER BY \"custom_fields\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT MAX(\"settings\".\"updated_on\") FROM \"settings\""
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE \"custom_fields\".\"type\" = $1 AND \"custom_fields\".\"is_filter\" = $2 ORDER BY \"custom_fields\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT COUNT(*) FROM \"projects\" WHERE (projects.status IN ($1 /*, ... */)) AND ((projects.status IN ($2)))"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"tokens\".* FROM \"tokens\" WHERE \"tokens\".\"action\" = $1 AND \"tokens\".\"value\" = $2 LIMIT $3"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"custom_fields\".* FROM \"custom_fields\" WHERE \"custom_fields\".\"type\" = $1 ORDER BY \"custom_fields\".\"position\" ASC"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"type\" IN ($1, $2) AND \"users\".\"id\" = $3 LIMIT $4"
+      }
+    ]
+  }
+}

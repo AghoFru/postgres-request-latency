@@ -1,0 +1,20 @@
+FROM php:8.4-cli-bookworm
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      git iproute2 libfreetype6-dev libicu-dev libjpeg62-turbo-dev libpng-dev \
+      libpq-dev libzip-dev unzip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j"$(nproc)" bcmath gd intl opcache pdo_pgsql zip \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+WORKDIR /var/www/html
+COPY . .
+COPY entrypoint.benchmark.sh /usr/local/bin/entrypoint-benchmark
+RUN chmod 755 /usr/local/bin/entrypoint-benchmark
+RUN cp .env.example .env \
+    && composer install --no-interaction --no-progress --prefer-dist \
+    && php artisan key:generate --force
+
+EXPOSE 8000
+CMD ["/usr/local/bin/entrypoint-benchmark"]

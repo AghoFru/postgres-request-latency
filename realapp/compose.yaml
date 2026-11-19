@@ -1,0 +1,65 @@
+services:
+  database:
+    image: postgres:18-alpine@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
+    environment:
+      POSTGRES_DB: redmine
+      POSTGRES_USER: redmine
+      POSTGRES_PASSWORD: benchmark
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U redmine -d redmine"]
+      interval: 1s
+      timeout: 2s
+      retries: 60
+
+  database-shaper:
+    image: alpine:3.22@sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce
+    network_mode: service:database
+    cap_add: [NET_ADMIN]
+    depends_on: [database]
+    command: ["sh", "-c", "apk add --no-cache iproute2 >/dev/null && sleep infinity"]
+
+  redmine:
+    image: redmine:6.1.4-bookworm@sha256:36944a03c15c81eba6e9c60b0c253fbac7a5a21ff9f5a56c2424af2d1639485a
+    cap_add: [NET_ADMIN]
+    environment:
+      REDMINE_DB_POSTGRES: database
+      REDMINE_DB_USERNAME: redmine
+      REDMINE_DB_PASSWORD: benchmark
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_ENCODING: utf8
+      RAILS_MAX_THREADS: 16
+      WEB_CONCURRENCY: 1
+      DB_LATENCY_TRACE: ${DB_LATENCY_TRACE:-0}
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - ruby
+        - -rnet/http
+        - -e
+        - 'exit(Net::HTTP.get_response(URI("http://127.0.0.1:3000/login")).code == "200" ? 0 : 1)'
+      interval: 3s
+      timeout: 4s
+      retries: 80
+    volumes:
+      - "./seed.rb:/work/seed.rb:ro"
+      - "./db_round_trip_probe.rb:/work/db_round_trip_probe.rb:ro"
+
+  shaper-redmine:
+    image: alpine:3.22@sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce
+    network_mode: service:redmine
+    cap_add: [NET_ADMIN]
+    depends_on: [redmine]
+    command: ["sh", "-c", "apk add --no-cache iproute2 >/dev/null && sleep infinity"]
+
+  probe:
+    image: node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+    network_mode: service:redmine
+    depends_on:
+      redmine:
+        condition: service_healthy
+    command: ["sleep", "infinity"]
+    tmpfs: ["/run/secrets"]
+    volumes: ["./:/work:ro"]

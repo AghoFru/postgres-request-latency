@@ -1,0 +1,164 @@
+{
+  "phase": "fidelity",
+  "command": "python3 experiments/realapp_note.py fidelity --run-name 2026-11-18-netem-fidelity-arm64-host",
+  "args": {
+    "phase": "fidelity",
+    "run_name": "2026-11-18-netem-fidelity-arm64-host",
+    "app": "redmine",
+    "method": "container",
+    "runs": 10,
+    "requests": 200,
+    "warmup": 20,
+    "samples": 1000,
+    "repetitions": 3,
+    "select1_iterations": 500,
+    "trace_requests": 100,
+    "trace_route_requests": 30,
+    "trace_rtts": [
+      0,
+      1
+    ],
+    "budget_s": 10800,
+    "rtts": [
+      0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.75,
+      1,
+      1.5,
+      2
+    ],
+    "include_none": true,
+    "sysctl": [],
+    "sysctls": {}
+  },
+  "seed": 20261118,
+  "sweep_rtts_ms": [
+    0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    2
+  ],
+  "fidelity_rtts_ms": [
+    0,
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.75,
+    1,
+    2
+  ],
+  "code_version": "No version control. See the sha256 values of the scripts.",
+  "started_utc": "2026-11-18T13:43:32Z",
+  "environment": {
+    "kernel": "7.0.0-1019-nvidia",
+    "kernel_config": [
+      "CONFIG_NO_HZ_COMMON=y",
+      "# CONFIG_HZ_PERIODIC is not set",
+      "# CONFIG_NO_HZ_IDLE is not set",
+      "CONFIG_NO_HZ_FULL=y",
+      "CONFIG_NO_HZ=y",
+      "CONFIG_HIGH_RES_TIMERS=y",
+      "# CONFIG_HZ_100 is not set",
+      "# CONFIG_HZ_250 is not set",
+      "# CONFIG_HZ_300 is not set",
+      "CONFIG_HZ_1000=y",
+      "CONFIG_HZ=1000",
+      "CONFIG_NET_SCH_NETEM=m"
+    ],
+    "cpu_model": "Cortex-X925",
+    "cpu_threads": 20,
+    "cpufreq_governor": "performance",
+    "cpuidle_states": [
+      {
+        "name": "LPI-0",
+        "exit_latency_us": 0
+      },
+      {
+        "name": "LPI-1",
+        "exit_latency_us": 42
+      },
+      {
+        "name": "LPI-2",
+        "exit_latency_us": 231
+      },
+      {
+        "name": "LPI-3",
+        "exit_latency_us": 433
+      }
+    ],
+    "clocksource": "arch_sys_counter",
+    "tcp_autocorking": "1",
+    "tcp_limit_output_bytes": "4194304",
+    "tcp_slow_start_after_idle": "1",
+    "loadavg_at_start": "1.33 1.57 1.44 2/1378 1251015",
+    "docker_server": "29.6.2",
+    "docker_compose": "5.2.0",
+    "python": "3.12.3",
+    "aimeos_commit": "919720089ad5ff6e63eee9c0aaf4a42c2cc27340",
+    "aimeos_local_changes": [
+      "M README.md",
+      "?? Dockerfile.benchmark",
+      "?? compose.benchmark.yaml",
+      "?? entrypoint.benchmark.sh",
+      "?? run.py",
+      "?? traffic.mjs"
+    ],
+    "sha256": {
+      "apps/aimeos/Dockerfile.benchmark": "23cccf188f4ff3ebdbf5684e34f768a9d3f11f37fc71b69eae7c82e2e8a8b086",
+      "apps/aimeos/compose.benchmark.yaml": "42ed89bff0b894a30b30fc492ccb179e0c87af9c611a699d5964f2f848c6c946",
+      "apps/aimeos/composer.lock": "609fb236abd6901087fb67670f0305ed8fb5c7855ff079100226f28c4e8ee77e",
+      "apps/aimeos/entrypoint.benchmark.sh": "7189be40a4cf4ffc2dcb162550725bcfe43cc7eb7ef03598ea2fd361c3838679",
+      "apps/aimeos/run.py": "bdddb2a30cf80e2b98de023be7a0357461a427b540c848fdd0685965592cb28d",
+      "apps/aimeos/traffic.mjs": "a6820610962043b52a9c9321353d09992c1f0e2f36418caa5aa8943c2a81b6ed",
+      "experiments/echo_server.mjs": "0ac6975b593b6f4f5cb03d67577aa36c3e484011b5e11902fce63f3b00b3c1ee",
+      "experiments/realapp_note.py": "0e607d19c88f7c7b547f62bbed9b11cf6d2d274783b7e9a90242deb3170d1e1b",
+      "experiments/rtt_probe.mjs": "0f7f9eda4cc9a7bcdd0055d742d5bd417404a245aec41062519cba59ed5f1def",
+      "realapp/README.md": "5dec60aa50577bf61fb85a158fccb82f4326327e868a2530f31c2c04be0f5103",
+      "realapp/compose.yaml": "3b8306f8ca9fcae4337ae494c43133a52ccca594100ec4ee540cd79e8aeedb6c",
+      "realapp/db_latency_trace.rb": "c9487a4626b7b5746d021b2abd73105a8bbcaa6a72a365305f64b19683b415c5",
+      "realapp/db_round_trip_probe.rb": "c82449799ba8c9de7ff3835da27f129773c4d158a115967135f02125d4cb16c7",
+      "realapp/run.py": "3767d4da92cbf5f3dfc0e142f1427359ce7f674fad843e1f61c088b8e38221f9",
+      "realapp/seed.rb": "436fc6ef42974d3e44e71f622926bd14df84dbc00ca55f4cf9938c73e063a885",
+      "realapp/traffic.mjs": "0a7a0857c198fc303be23f07863e87a7c72a129c97be96634f6c8a29e54d637c"
+    }
+  },
+  "status": "failed",
+  "qdisc_example": {
+    "container_0.1ms": {
+      "container_app": "qdisc netem 8001: root",
+      "container_db": "qdisc netem 8002: root",
+      "hostveth_app": "qdisc noqueue 0: root",
+      "hostveth_db": "qdisc noqueue 0: root"
+    },
+    "hostveth_0.1ms": {
+      "container_app": "qdisc noqueue 0: root",
+      "container_db": "qdisc noqueue 0: root",
+      "hostveth_app": "qdisc netem 8003: root",
+      "hostveth_db": "qdisc netem 8004: root"
+    }
+  },
+  "deep_idle_entries_per_s": {
+    "default": 2228.0,
+    "pmqos_hold": 0.0
+  },
+  "error": "RuntimeError: Command failed with status 1: ['docker', 'compose', '--project-name', 'note-redmine', '-f', '<project>/realapp/compose.yaml']  Network note-redmine_default Creating \n Network note-redmine_default Created \n Container note-redmine-database-1 Creating \n Container note-redmine-database-1 Created \n Container note-redmine-db-echo-1 Creating \n Container note-redmine-database-shaper-1 Creating \n Container note-redmine-redmine-1 Creating \n Container note-redmine-database-shaper-1 Created \n Container note-redmine-db-echo-1 Created \n Container note-redmine-redmine-1 Created \n Container note-redmine-shaper-redmine-1 Creating \n Container note-redmine-probe-1 Creating \n Container note-redmine-probe-1 Created \n Container note-redmine-shaper-redmine-1 Created \n Container note-redmine-database-1 Starting \n Container note-redmine-database-1 Started \n Container note-redmine-database-1 Waiting \n Container note-redmine-db-echo-1 Starting \n Container note-redmine-database-shaper-1 Starting \n Container note-redmine-database-shaper-1 Started \n Container note-redmine-db-echo-1 Started \n Container note-redmine-database-1 Healthy \n Container note-redmine-redmine-1 Starting \n Container note-redmine-redmine-1 Started \n Container note-redmine-redmine-1 Waiting \n Container note-redmine-shaper-redmine-1 Starting \n Container note-redmine-shaper-redmine-1 Started \n Container note-redmine-redmine-1 Healthy \n Container note-redmine-probe-1 Starting \n Container note-redmine-probe-1 Started \n Container note-redmine-probe-1 Waiting \n Container note-redmine-database-1 Waiting \n Container note-redmine-db-echo-1 Waiting \n Container note-redmine-database-shaper-1 Waiting \n Container note-redmine-redmine-1 Waiting \n Container note-redmine-shaper-redmine-1 Waiting \n Container note-redmine-shaper-redmine-1 Healthy \n Container note-redmine-db-echo-1 Healthy \n Container note-redmine-probe-1 Healthy \n Container note-redmine-database-1 Healthy \ncontainer note-redmine-database-shaper-1 exited (2)\n",
+  "finished_utc": "2026-11-18T13:53:53Z",
+  "loadavg_at_end": "2.03 2.21 1.83 2/1394 1348154"
+}

@@ -1,0 +1,216 @@
+{
+  "product_list": {
+    "requests": 30,
+    "statement_calls": 2120,
+    "statements_per_request": 70.66666666666667,
+    "statements": [
+      {
+        "calls": 210,
+        "query": "SELECT \"id\", \"value\", \"expire\" FROM \"madmin_cache\" WHERE ( \"expire\" >= $1 OR \"expire\" IS NULL ) AND \"id\" IN ($2 /*, ... */)"
+      },
+      {
+        "calls": 200,
+        "query": "SELECT mtex.\"id\" AS \"text.id\", mtex.\"siteid\" AS \"text.siteid\", mtex.\"ctime\" AS \"text.ctime\", mtex.\"mtime\" AS \"text.mtime\", mtex.\"editor\" AS \"text.editor\", mtex.\"type\" AS \"text.type\", mtex.\"label\" AS \"text.label\", mtex.\"content\" AS \"text.content\", mtex.\"langid\" AS \"text.languageid\", mtex.\"domain\" AS "
+      },
+      {
+        "calls": 200,
+        "query": "SELECT mtexli.\"id\" AS \"text.lists.id\", mtexli.\"siteid\" AS \"text.lists.siteid\", mtexli.\"ctime\" AS \"text.lists.ctime\", mtexli.\"mtime\" AS \"text.lists.mtime\", mtexli.\"editor\" AS \"text.lists.editor\", mtexli.\"parentid\" AS \"text.lists.parentid\", mtexli.\"key\" AS \"text.lists.key\", mtexli.\"type\" AS \"text.list"
+      },
+      {
+        "calls": 180,
+        "query": "SELECT mmed.\"id\" AS \"media.id\", mmed.\"siteid\" AS \"media.siteid\", mmed.\"ctime\" AS \"media.ctime\", mmed.\"mtime\" AS \"media.mtime\", mmed.\"editor\" AS \"media.editor\", mmed.\"type\" AS \"media.type\", mmed.\"label\" AS \"media.label\", mmed.\"domain\" AS \"media.domain\", mmed.\"langid\" AS \"media.languageid\", mmed.\"mime"
+      },
+      {
+        "calls": 180,
+        "query": "SELECT mmedpr.\"id\" AS \"media.property.id\", mmedpr.\"siteid\" AS \"media.property.siteid\", mmedpr.\"ctime\" AS \"media.property.ctime\", mmedpr.\"mtime\" AS \"media.property.mtime\", mmedpr.\"editor\" AS \"media.property.editor\", mmedpr.\"parentid\" AS \"media.property.parentid\", mmedpr.\"key\" AS \"media.property.key\","
+      },
+      {
+        "calls": 180,
+        "query": "SELECT mmedli.\"id\" AS \"media.lists.id\", mmedli.\"siteid\" AS \"media.lists.siteid\", mmedli.\"ctime\" AS \"media.lists.ctime\", mmedli.\"mtime\" AS \"media.lists.mtime\", mmedli.\"editor\" AS \"media.lists.editor\", mmedli.\"parentid\" AS \"media.lists.parentid\", mmedli.\"key\" AS \"media.lists.key\", mmedli.\"type\" AS \"me"
+      },
+      {
+        "calls": 80,
+        "query": "SELECT mprili.\"id\" AS \"price.lists.id\", mprili.\"siteid\" AS \"price.lists.siteid\", mprili.\"ctime\" AS \"price.lists.ctime\", mprili.\"mtime\" AS \"price.lists.mtime\", mprili.\"editor\" AS \"price.lists.editor\", mprili.\"parentid\" AS \"price.lists.parentid\", mprili.\"key\" AS \"price.lists.key\", mprili.\"type\" AS \"pr"
+      },
+      {
+        "calls": 80,
+        "query": "SELECT mcatli.\"id\" AS \"catalog.lists.id\", mcatli.\"siteid\" AS \"catalog.lists.siteid\", mcatli.\"ctime\" AS \"catalog.lists.ctime\", mcatli.\"mtime\" AS \"catalog.lists.mtime\", mcatli.\"editor\" AS \"catalog.lists.editor\", mcatli.\"parentid\" AS \"catalog.lists.parentid\", mcatli.\"key\" AS \"catalog.lists.key\", mcatli"
+      },
+      {
+        "calls": 80,
+        "query": "SELECT mpri.\"id\" AS \"price.id\", mpri.\"siteid\" AS \"price.siteid\", mpri.\"ctime\" AS \"price.ctime\", mpri.\"mtime\" AS \"price.mtime\", mpri.\"editor\" AS \"price.editor\", mpri.\"type\" AS \"price.type\", mpri.\"currencyid\" AS \"price.currencyid\", mpri.\"domain\" AS \"price.domain\", mpri.\"label\" AS \"price.label\", mpri.\""
+      },
+      {
+        "calls": 60,
+        "query": "DEALLOCATE $1"
+      },
+      {
+        "calls": 40,
+        "query": "SELECT matt.\"id\" AS \"attribute.id\", matt.\"siteid\" AS \"attribute.siteid\", matt.\"ctime\" AS \"attribute.ctime\", matt.\"mtime\" AS \"attribute.mtime\", matt.\"editor\" AS \"attribute.editor\", matt.\"key\" AS \"attribute.key\", matt.\"type\" AS \"attribute.type\", matt.\"label\" AS \"attribute.label\", matt.\"code\" AS \"attri"
+      },
+      {
+        "calls": 40,
+        "query": "SELECT mcat.\"id\" AS \"catalog.id\", mcat.\"siteid\" AS \"catalog.siteid\", mcat.\"parentid\" AS \"catalog.parentid\", mcat.\"level\" AS \"catalog.level\", mcat.\"nleft\" AS \"catalog.left\", mcat.\"nright\" AS \"catalog.right\", mcat.\"label\" AS \"catalog.label\", mcat.\"code\" AS \"catalog.code\", mcat.\"status\" AS \"catalog.sta"
+      },
+      {
+        "calls": 40,
+        "query": "SELECT msupli.\"id\" AS \"supplier.lists.id\", msupli.\"siteid\" AS \"supplier.lists.siteid\", msupli.\"ctime\" AS \"supplier.lists.ctime\", msupli.\"mtime\" AS \"supplier.lists.mtime\", msupli.\"editor\" AS \"supplier.lists.editor\", msupli.\"parentid\" AS \"supplier.lists.parentid\", msupli.\"key\" AS \"supplier.lists.key\","
+      },
+      {
+        "calls": 40,
+        "query": "SELECT mpro.\"id\" AS \"product.id\", mpro.\"siteid\" AS \"product.siteid\", mpro.\"ctime\" AS \"product.ctime\", mpro.\"mtime\" AS \"product.mtime\", mpro.\"editor\" AS \"product.editor\", mpro.\"type\" AS \"product.type\", mpro.\"label\" AS \"product.label\", mpro.\"code\" AS \"product.code\", mpro.\"url\" AS \"product.url\", mpro.\""
+      },
+      {
+        "calls": 40,
+        "query": "SELECT mattli.\"id\" AS \"attribute.lists.id\", mattli.\"siteid\" AS \"attribute.lists.siteid\", mattli.\"ctime\" AS \"attribute.lists.ctime\", mattli.\"mtime\" AS \"attribute.lists.mtime\", mattli.\"editor\" AS \"attribute.lists.editor\", mattli.\"parentid\" AS \"attribute.lists.parentid\", mattli.\"key\" AS \"attribute.list"
+      },
+      {
+        "calls": 40,
+        "query": "SELECT msup.\"id\" AS \"supplier.id\", msup.\"siteid\" AS \"supplier.siteid\", msup.\"ctime\" AS \"supplier.ctime\", msup.\"mtime\" AS \"supplier.mtime\", msup.\"editor\" AS \"supplier.editor\", msup.\"label\" AS \"supplier.label\", msup.\"code\" AS \"supplier.code\", msup.\"pos\" AS \"supplier.position\", msup.\"status\" AS \"suppli"
+      },
+      {
+        "calls": 40,
+        "query": "SELECT mproli.\"id\" AS \"product.lists.id\", mproli.\"siteid\" AS \"product.lists.siteid\", mproli.\"ctime\" AS \"product.lists.ctime\", mproli.\"mtime\" AS \"product.lists.mtime\", mproli.\"editor\" AS \"product.lists.editor\", mproli.\"parentid\" AS \"product.lists.parentid\", mproli.\"key\" AS \"product.lists.key\", mproli"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mlocsi.\"id\" AS \"locale.site.id\", mlocsi.\"siteid\" AS \"locale.site.siteid\", mlocsi.\"parentid\" AS \"locale.site.parentid\", mlocsi.\"label\" AS \"locale.site.label\", mlocsi.\"code\" AS \"locale.site.code\", mlocsi.\"status\" AS \"locale.site.status\", mlocsi.\"icon\" AS \"locale.site.icon\", mlocsi.\"logo\" AS \"lo"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mplu.\"id\" AS \"plugin.id\", mplu.\"siteid\" AS \"plugin.siteid\", mplu.\"ctime\" AS \"plugin.ctime\", mplu.\"mtime\" AS \"plugin.mtime\", mplu.\"editor\" AS \"plugin.editor\", mplu.\"type\" AS \"plugin.type\", mplu.\"label\" AS \"plugin.label\", mplu.\"provider\" AS \"plugin.provider\", mplu.\"pos\" AS \"plugin.position\", mp"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mgro.\"id\" AS \"group.id\", mgro.\"siteid\" AS \"group.siteid\", mgro.\"ctime\" AS \"group.ctime\", mgro.\"mtime\" AS \"group.mtime\", mgro.\"editor\" AS \"group.editor\", mgro.\"code\" AS \"group.code\", mgro.\"label\" AS \"group.label\" FROM \"mshop_group\" mgro WHERE ( ( mgro.\"siteid\" IN ($1 /*, ... */) ) AND ( mgro.\""
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mloc.\"id\" AS \"locale.id\", mloc.\"siteid\" AS \"locale.siteid\", mloc.\"langid\" AS \"locale.languageid\", mloc.\"currencyid\" AS \"locale.currencyid\", mloc.\"status\" AS \"locale.status\", mloc.\"pos\" AS \"locale.position\", mloc.\"ctime\" AS \"locale.ctime\", mloc.\"mtime\" AS \"locale.mtime\", mloc.\"editor\" AS \"loca"
+      },
+      {
+        "calls": 30,
+        "query": "set search_path to $1"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mloc.\"id\" AS \"locale.id\", mloc.\"siteid\" AS \"locale.siteid\", mloc.\"langid\" AS \"locale.languageid\", mloc.\"currencyid\" AS \"locale.currencyid\", mloc.\"status\" AS \"locale.status\", mloc.\"pos\" AS \"locale.position\", mloc.\"ctime\" AS \"locale.ctime\", mloc.\"mtime\" AS \"locale.mtime\", mloc.\"editor\" AS \"loca"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mbas.\"id\" AS \"basket.id\", mbas.\"siteid\" AS \"basket.siteid\", mbas.\"customerid\" AS \"basket.customerid\", mbas.\"name\" AS \"basket.name\", mbas.\"content\" AS \"basket.content\", mbas.\"ctime\" AS \"basket.ctime\", mbas.\"mtime\" AS \"basket.mtime\", mbas.\"editor\" AS \"basket.editor\" FROM \"mshop_basket\" mbas WHE"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mrul.\"id\" AS \"rule.id\", mrul.\"siteid\" AS \"rule.siteid\", mrul.\"ctime\" AS \"rule.ctime\", mrul.\"mtime\" AS \"rule.mtime\", mrul.\"editor\" AS \"rule.editor\", mrul.\"type\" AS \"rule.type\", mrul.\"label\" AS \"rule.label\", mrul.\"provider\" AS \"rule.provider\", mrul.\"pos\" AS \"rule.position\", mrul.\"status\" AS \"ru"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mlocsi.\"id\" AS \"locale.site.id\", mlocsi.\"siteid\" AS \"locale.site.siteid\", mlocsi.\"parentid\" AS \"locale.site.parentid\", mlocsi.\"label\" AS \"locale.site.label\", mlocsi.\"code\" AS \"locale.site.code\", mlocsi.\"status\" AS \"locale.site.status\", mlocsi.\"icon\" AS \"locale.site.icon\", mlocsi.\"logo\" AS \"lo"
+      },
+      {
+        "calls": 30,
+        "query": "select * from \"mshop_locale_site\" where \"code\" = $1 limit $2"
+      },
+      {
+        "calls": 20,
+        "query": "SELECT mattty.\"id\" AS \"attribute.type.id\", mattty.\"siteid\" AS \"attribute.type.siteid\", mattty.\"ctime\" AS \"attribute.type.ctime\", mattty.\"mtime\" AS \"attribute.type.mtime\", mattty.\"editor\" AS \"attribute.type.editor\", mattty.\"label\" AS \"attribute.type.label\", mattty.\"code\" AS \"attribute.type.code\", mat"
+      },
+      {
+        "calls": 15,
+        "query": "SELECT mpro.\"id\" , MIN(mindte.\"name\") AS \"s0\" FROM \"mshop_product\" mpro LEFT JOIN \"mshop_index_catalog\" AS mindca ON mindca.\"prodid\" = mpro.\"id\" LEFT JOIN \"mshop_index_text\" AS mindte ON mindte.\"prodid\" = mpro.\"id\" WHERE ( ( mpro.\"siteid\" IN ($1 /*, ... */) ) AND ( ( mindca.\"catid\" IS NOT NULL AND m"
+      },
+      {
+        "calls": 15,
+        "query": "SELECT COUNT(*) AS \"count\" FROM ( SELECT mpro.\"id\" FROM \"mshop_product\" mpro LEFT JOIN \"mshop_index_catalog\" AS mindca ON mindca.\"prodid\" = mpro.\"id\" LEFT JOIN \"mshop_index_text\" AS mindte ON mindte.\"prodid\" = mpro.\"id\" WHERE ( ( mpro.\"siteid\" IN ($1 /*, ... */) ) AND ( ( mindca.\"catid\" IS NOT NULL "
+      },
+      {
+        "calls": 15,
+        "query": "SELECT mpro.\"id\" , MIN(mindpr.\"value\") AS \"s0\" FROM \"mshop_product\" mpro LEFT JOIN \"mshop_index_catalog\" AS mindca ON mindca.\"prodid\" = mpro.\"id\" LEFT JOIN \"mshop_index_price\" AS mindpr ON mindpr.\"prodid\" = mpro.\"id\" WHERE ( ( mpro.\"siteid\" IN ($1 /*, ... */) ) AND ( ( mindca.\"catid\" IS NOT NULL AND"
+      },
+      {
+        "calls": 15,
+        "query": "SELECT COUNT(*) AS \"count\" FROM ( SELECT mpro.\"id\" FROM \"mshop_product\" mpro LEFT JOIN \"mshop_index_catalog\" AS mindca ON mindca.\"prodid\" = mpro.\"id\" LEFT JOIN \"mshop_index_price\" AS mindpr ON mindpr.\"prodid\" = mpro.\"id\" WHERE ( ( mpro.\"siteid\" IN ($1 /*, ... */) ) AND ( ( mindca.\"catid\" IS NOT NULL"
+      },
+      {
+        "calls": 10,
+        "query": "SELECT mattty.\"id\" AS \"attribute.type.id\", mattty.\"siteid\" AS \"attribute.type.siteid\", mattty.\"ctime\" AS \"attribute.type.ctime\", mattty.\"mtime\" AS \"attribute.type.mtime\", mattty.\"editor\" AS \"attribute.type.editor\", mattty.\"label\" AS \"attribute.type.label\", mattty.\"code\" AS \"attribute.type.code\", mat"
+      }
+    ]
+  },
+  "product_detail": {
+    "requests": 30,
+    "statement_calls": 780,
+    "statements_per_request": 26.0,
+    "statements": [
+      {
+        "calls": 120,
+        "query": "SELECT \"id\", \"value\", \"expire\" FROM \"madmin_cache\" WHERE ( \"expire\" >= $1 OR \"expire\" IS NULL ) AND \"id\" IN ($2 /*, ... */)"
+      },
+      {
+        "calls": 60,
+        "query": "SELECT mtex.\"id\" AS \"text.id\", mtex.\"siteid\" AS \"text.siteid\", mtex.\"ctime\" AS \"text.ctime\", mtex.\"mtime\" AS \"text.mtime\", mtex.\"editor\" AS \"text.editor\", mtex.\"type\" AS \"text.type\", mtex.\"label\" AS \"text.label\", mtex.\"content\" AS \"text.content\", mtex.\"langid\" AS \"text.languageid\", mtex.\"domain\" AS "
+      },
+      {
+        "calls": 60,
+        "query": "SELECT mpro.\"id\" AS \"product.id\", mpro.\"siteid\" AS \"product.siteid\", mpro.\"ctime\" AS \"product.ctime\", mpro.\"mtime\" AS \"product.mtime\", mpro.\"editor\" AS \"product.editor\", mpro.\"type\" AS \"product.type\", mpro.\"label\" AS \"product.label\", mpro.\"code\" AS \"product.code\", mpro.\"url\" AS \"product.url\", mpro.\""
+      },
+      {
+        "calls": 60,
+        "query": "SELECT mtexli.\"id\" AS \"text.lists.id\", mtexli.\"siteid\" AS \"text.lists.siteid\", mtexli.\"ctime\" AS \"text.lists.ctime\", mtexli.\"mtime\" AS \"text.lists.mtime\", mtexli.\"editor\" AS \"text.lists.editor\", mtexli.\"parentid\" AS \"text.lists.parentid\", mtexli.\"key\" AS \"text.lists.key\", mtexli.\"type\" AS \"text.list"
+      },
+      {
+        "calls": 60,
+        "query": "SELECT mpro.\"id\" FROM \"mshop_product\" mpro LEFT JOIN \"mshop_index_catalog\" AS mindca ON mindca.\"prodid\" = mpro.\"id\" WHERE ( ( mpro.\"siteid\" IN ($1 /*, ... */) ) AND ( ( mindca.\"catid\" IS NOT NULL ) AND ( ( ( mpro.\"start\" <= $2 OR mpro.\"start\" IS NULL OR mpro.\"type\" = $3 ) AND ( mpro.\"end\" >= $4 OR m"
+      },
+      {
+        "calls": 60,
+        "query": "DEALLOCATE $1"
+      },
+      {
+        "calls": 60,
+        "query": "SELECT mproli.\"id\" AS \"product.lists.id\", mproli.\"siteid\" AS \"product.lists.siteid\", mproli.\"ctime\" AS \"product.lists.ctime\", mproli.\"mtime\" AS \"product.lists.mtime\", mproli.\"editor\" AS \"product.lists.editor\", mproli.\"parentid\" AS \"product.lists.parentid\", mproli.\"key\" AS \"product.lists.key\", mproli"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mloc.\"id\" AS \"locale.id\", mloc.\"siteid\" AS \"locale.siteid\", mloc.\"langid\" AS \"locale.languageid\", mloc.\"currencyid\" AS \"locale.currencyid\", mloc.\"status\" AS \"locale.status\", mloc.\"pos\" AS \"locale.position\", mloc.\"ctime\" AS \"locale.ctime\", mloc.\"mtime\" AS \"locale.mtime\", mloc.\"editor\" AS \"loca"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mrul.\"id\" AS \"rule.id\", mrul.\"siteid\" AS \"rule.siteid\", mrul.\"ctime\" AS \"rule.ctime\", mrul.\"mtime\" AS \"rule.mtime\", mrul.\"editor\" AS \"rule.editor\", mrul.\"type\" AS \"rule.type\", mrul.\"label\" AS \"rule.label\", mrul.\"provider\" AS \"rule.provider\", mrul.\"pos\" AS \"rule.position\", mrul.\"status\" AS \"ru"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mlocsi.\"id\" AS \"locale.site.id\", mlocsi.\"siteid\" AS \"locale.site.siteid\", mlocsi.\"parentid\" AS \"locale.site.parentid\", mlocsi.\"label\" AS \"locale.site.label\", mlocsi.\"code\" AS \"locale.site.code\", mlocsi.\"status\" AS \"locale.site.status\", mlocsi.\"icon\" AS \"locale.site.icon\", mlocsi.\"logo\" AS \"lo"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mloc.\"id\" AS \"locale.id\", mloc.\"siteid\" AS \"locale.siteid\", mloc.\"langid\" AS \"locale.languageid\", mloc.\"currencyid\" AS \"locale.currencyid\", mloc.\"status\" AS \"locale.status\", mloc.\"pos\" AS \"locale.position\", mloc.\"ctime\" AS \"locale.ctime\", mloc.\"mtime\" AS \"locale.mtime\", mloc.\"editor\" AS \"loca"
+      },
+      {
+        "calls": 30,
+        "query": "set search_path to $1"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mlocsi.\"id\" AS \"locale.site.id\", mlocsi.\"siteid\" AS \"locale.site.siteid\", mlocsi.\"parentid\" AS \"locale.site.parentid\", mlocsi.\"label\" AS \"locale.site.label\", mlocsi.\"code\" AS \"locale.site.code\", mlocsi.\"status\" AS \"locale.site.status\", mlocsi.\"icon\" AS \"locale.site.icon\", mlocsi.\"logo\" AS \"lo"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mbas.\"id\" AS \"basket.id\", mbas.\"siteid\" AS \"basket.siteid\", mbas.\"customerid\" AS \"basket.customerid\", mbas.\"name\" AS \"basket.name\", mbas.\"content\" AS \"basket.content\", mbas.\"ctime\" AS \"basket.ctime\", mbas.\"mtime\" AS \"basket.mtime\", mbas.\"editor\" AS \"basket.editor\" FROM \"mshop_basket\" mbas WHE"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mplu.\"id\" AS \"plugin.id\", mplu.\"siteid\" AS \"plugin.siteid\", mplu.\"ctime\" AS \"plugin.ctime\", mplu.\"mtime\" AS \"plugin.mtime\", mplu.\"editor\" AS \"plugin.editor\", mplu.\"type\" AS \"plugin.type\", mplu.\"label\" AS \"plugin.label\", mplu.\"provider\" AS \"plugin.provider\", mplu.\"pos\" AS \"plugin.position\", mp"
+      },
+      {
+        "calls": 30,
+        "query": "SELECT mgro.\"id\" AS \"group.id\", mgro.\"siteid\" AS \"group.siteid\", mgro.\"ctime\" AS \"group.ctime\", mgro.\"mtime\" AS \"group.mtime\", mgro.\"editor\" AS \"group.editor\", mgro.\"code\" AS \"group.code\", mgro.\"label\" AS \"group.label\" FROM \"mshop_group\" mgro WHERE ( ( mgro.\"siteid\" IN ($1 /*, ... */) ) AND ( mgro.\""
+      },
+      {
+        "calls": 30,
+        "query": "select * from \"mshop_locale_site\" where \"code\" = $1 limit $2"
+      }
+    ]
+  }
+}
